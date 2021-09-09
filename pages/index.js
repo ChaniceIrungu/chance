@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Layout from "../components/Layout";
 import { Button, Grid, Hidden } from "@material-ui/core";
 import useStyles from "../utils/styles";
