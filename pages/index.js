@@ -35,7 +35,11 @@ export default function Home() {
         </Grid>
 
         <Grid item sm={12} md={6} className={classes.deviceMockupContainer}>
-          <img src="/chanceHomeImage.png" className={classes.devicesMockups} />
+          <img
+            src="/chanceHomeImage.png"
+            className={classes.devicesMockups}
+            alt="home page Image"
+          />
         </Grid>
       </Grid>
     </Layout>
