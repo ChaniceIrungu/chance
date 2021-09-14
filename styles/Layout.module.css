@@ -1,20 +1,35 @@
-.container {
-  min-height: 100vh;
+.body {
+  background-color: #0f0f28;
+  /* min-height: 100vh; */
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
+  color: #ffffff;
 }
 
 .main {
-  padding: 5rem 0;
+  /* padding: 5rem 0; */
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+/* .logo {
+  max-width: 40;
+  margin-right: 10;
+} */
+
+.navbar {
+  background-color: #0f0f28;
+}
+
+.navbar a {
+  color: #ffffff;
 }
 
 .footer {
@@ -32,19 +47,19 @@
   align-items: center;
   flex-grow: 1;
 }
-
+/* 
 .title a {
   color: #0070f3;
   text-decoration: none;
-}
-
+} */
+/* 
 .title a:hover,
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
+} */
 
-.title {
+/* .title {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
@@ -58,7 +73,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
-}
+} */
 
 .code {
   background: #fafafa;
@@ -69,14 +84,14 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.grid {
+/* .grid {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   max-width: 800px;
   margin-top: 3rem;
-}
+} */
 
 .card {
   margin: 1rem;
@@ -109,13 +124,14 @@
 }
 
 .logo {
-  height: 1em;
+  height: 2em;
   margin-left: 0.5rem;
+  margin-right: 1rem;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
+} */

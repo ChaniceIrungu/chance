@@ -29,23 +29,26 @@ const useStyles = makeStyles({
   },
   title: {
     color: "#ffffff",
-    fontSize: 42,
+    fontSize: 35,
     fontWeight: 500,
     letterSpacing: 0.39,
-    lineHeight: "3.4rem",
+    lineHeight: "3.2rem",
     margin: 0,
   },
   paragraph: {
     color: "#ffffff",
-    fontSize: 18,
+    fontSize: 15,
     letterSpacing: 0.17,
     lineHeight: "1.43rem",
   },
   deviceMockupContainer: {
     position: "relative",
     paddingBottom: "33%",
-    height: 0,
+
     overflow: "hidden",
+    display: "flex",
+    justifyContent: "flex-start",
+    paddingTop: 70,
   },
   devicesMockups: {
     position: "absolute",
@@ -56,7 +59,7 @@ const useStyles = makeStyles({
     objectFit: "contain",
   },
 
-  textColor: {
+  button: {
     color: "#ffffff",
   },
 });
