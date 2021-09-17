@@ -1,103 +1,69 @@
-import React, { useState, useEffect } from "react";
-import styles from "../utils/form.module.css";
-import FormControl from "@material-ui/core/FormControl";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
-const Form = () => {
-  const intialValues = { email: "", password: "" };
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    color: "#ffffff",
+    alignItems: "center",
+    padding: theme.spacing(2),
 
-  const [formValues, setFormValues] = useState(intialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "300px",
+    },
+    "& .MuiButtonBase-root": {
+      margin: theme.spacing(2),
+    },
+  },
+}));
 
-  const submit = () => {
-    console.log(formValues);
-  };
+const Form = ({ handleClose }) => {
+  const classes = useStyles();
+  // create state variables for each input
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  //input change handler
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  //form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmitting(true);
+    console.log(firstName, lastName, email, password);
+    handleClose();
   };
-
-  //form validation handler
-  const validate = (values) => {
-    let errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-    if (!values.email) {
-      errors.email = "Cannot be blank";
-    } else if (!regex.test(values.email)) {
-      errors.email = "Invalid email format";
-    }
-
-    if (!values.password) {
-      errors.password = "Cannot be blank";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
-    }
-
-    return errors;
-  };
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmitting) {
-      submit();
-    }
-  }, [formErrors]);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.h1}>Sign in to continue</h1>
-      {Object.keys(formErrors).length === 0 && isSubmitting && (
-        <span className={styles.successMsg}>Form submitted successfully</span>
-      )}
-      <FormControl onSubmit={handleSubmit} noValidate>
-        <div className={styles.formRow}>
-          <label htmlFor="email" className={styles.label}>
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formValues.email}
-            onChange={handleChange}
-            className={styles.inputs}
-          />
-          {formErrors.email && (
-            <span className={styles.error}>{formErrors.email}</span>
-          )}
-        </div>
-
-        <div className={styles.formRow}>
-          <label htmlFor="password" className={styles.label}>
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={formValues.password}
-            onChange={handleChange}
-            className={styles.inputs}
-          />
-          {formErrors.password && (
-            <span className={styles.error}>{formErrors.password}</span>
-          )}
-        </div>
-
-        <button type="submit" className={styles.button}>
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <TextField
+        label="Email"
+        variant="filled"
+        type="email"
+        required
+        value={email}
+        style={{ color: "#ffffff" }}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <TextField
+        label="Password"
+        variant="filled"
+        type="password"
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <div>
+        <Button variant="contained" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button type="submit" variant="contained" color="primary" href="/feed">
           Sign In
-        </button>
-      </FormControl>
-    </div>
+        </Button>
+      </div>
+    </form>
   );
 };
 
