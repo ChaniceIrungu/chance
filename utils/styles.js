@@ -61,6 +61,7 @@ const useStyles = makeStyles({
 
   button: {
     color: "#ffffff",
+    border: "1px solid white",
   },
 });
 
