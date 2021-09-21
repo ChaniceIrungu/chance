@@ -46,7 +46,12 @@ const Login = () => {
           control={<Checkbox name="checkedB" color="primary" />}
           label="Remember me"
         />
-        <Button type="submit" variant="contained" style={btnstyle} fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          href="/feed"
+          style={btnstyle}
+          fullWidth>
           Sign in
         </Button>
         <Typography>

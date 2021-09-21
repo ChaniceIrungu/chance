@@ -28,8 +28,13 @@ export default function Feed() {
       <Grid item xs={12} sm={6} md={4}>
         <Card />
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
-        <BasicFollowCard></BasicFollowCard>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        display="flex"
+        justifyContent="space-between">
         <BasicFollowCard></BasicFollowCard>
       </Grid>
     </Grid>
