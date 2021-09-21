@@ -58,7 +58,7 @@ const BasicFollow = () => {
       <Box>
         <Button
           variant="contained"
-          href="/signUp"
+          href="/blogPage"
           style={{
             textTransform: "none",
             backgroundColor: "#0092D4",
